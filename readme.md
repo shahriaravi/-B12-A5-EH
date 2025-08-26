@@ -1,8 +1,8 @@
 ## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
 
-### 📅 Deadline For 60 marks: 28th August, 2025 (11:59 pm ⏱️)
+### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
 
-### 📅 Deadline For 50 marks: 29th August, 2025 (11:59 pm ⏱️)
+### 📅 No Deadline For 50 marks
 
 ### 📅 Deadline For 30 marks: Any time after 29th August.
 

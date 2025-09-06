@@ -1,12 +1,23 @@
 let historyData = [];
-historyData.reverse();
 
 // reusable function
+
+// get inner text 
+function getInnerText(str) {
+    const result = parseInt(document.getElementById(str).innerText);
+    return result;
+}
+
+// set inner text
+function setInnerText(str1, value) {
+    const setText = document.getElementById(str1);
+    setText.innerText = value;
+}
 
 // crate div 
 function addHistory() {
     const parent = document.getElementById("history-card");
-    parent.innerHTML = ""; 
+    parent.innerHTML = "";
     for (let data of historyData) {
         const div = document.createElement("div");
         div.className = "flex justify-between items-center p-2 bg-gray-200 rounded-xl mt-3";
@@ -23,18 +34,17 @@ function addHistory() {
     }
 }
 
-// get inner text 
-function getInnerText(str) {
-    const result = parseInt(document.getElementById(str).innerText);
-    return result;
+function copy(str1) {
+    const copyText = document.getElementById(str1).innerText;
+    alert("Number copied:" + copyText);
+    const copyCount = getInnerText("copy-count")
+
+    const newCopyCount = copyCount + 1;
+    setInnerText("copy-count", newCopyCount);
+    navigator.clipboard.writeText(copyText);
 }
 
-// set inner text
-function setInnerText(str1, value) {
-    const setText = document.getElementById(str1);
-    setText.innerText = value;
-}
-
+// main functionality
 // heart functionality
 const hearts = document.getElementsByClassName("heart");
 for (let heart of hearts) {
@@ -227,7 +237,7 @@ document.getElementById("card-7-btn")
             }
 
             historyData.push(data);
-            
+
             addHistory();
         }
     })
@@ -286,10 +296,61 @@ document.getElementById("card-9-btn")
         }
     })
 
+// call copy
+
+
 // delete all history
 document.getElementById("clear-history-btn")
     .addEventListener("click", function () {
         document.getElementById("history-card").innerHTML = "";
         historyData = [];
         addHistory();
+    })
+
+// copy functionally
+// card 1
+document.getElementById("copy-card-1")
+    .addEventListener("click", function () {
+        copy("card-1-num");
+    })
+
+// card 2
+document.getElementById("copy-card-2")
+    .addEventListener("click", function () {
+        copy("card-2-num");
+    })
+// card 3
+document.getElementById("copy-card-3")
+    .addEventListener("click", function () {
+        copy("card-3-num");
+    })
+// card 4
+document.getElementById("copy-card-4")
+    .addEventListener("click", function () {
+        copy("card-4-num");
+    })
+// card 5
+document.getElementById("copy-card-5")
+    .addEventListener("click", function () {
+        copy("card-5-num");
+    })
+// card 6
+document.getElementById("copy-card-6")
+    .addEventListener("click", function () {
+        copy("card-6-num");
+    })
+// card 7
+document.getElementById("copy-card-7")
+    .addEventListener("click", function () {
+        copy("card-7-num");
+    })
+// card 8
+document.getElementById("copy-card-8")
+    .addEventListener("click", function () {
+        copy("card-8-num");
+    })
+// card 9
+document.getElementById("copy-card-9")
+    .addEventListener("click", function () {
+        copy("card-9-num");
     })

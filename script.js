@@ -1,7 +1,27 @@
-const historyData = [];
+let historyData = [];
 historyData.reverse();
 
 // reusable function
+
+// crate div 
+function addHistory() {
+    const parent = document.getElementById("history-card");
+    parent.innerHTML = ""; 
+    for (let data of historyData) {
+        const div = document.createElement("div");
+        div.className = "flex justify-between items-center p-2 bg-gray-200 rounded-xl mt-3";
+        div.innerHTML = `
+            <div>
+                <h1>${data.name}</h1>
+                <span>${data.number}</span>
+            </div>
+            <div>
+                <span>${data.time}</span>
+            </div>
+        `;
+        parent.appendChild(div);
+    }
+}
 
 // get inner text 
 function getInnerText(str) {
@@ -51,7 +71,7 @@ document.getElementById("card-1-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -77,7 +97,7 @@ document.getElementById("card-2-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -103,7 +123,7 @@ document.getElementById("card-3-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -129,7 +149,7 @@ document.getElementById("card-4-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -155,7 +175,7 @@ document.getElementById("card-5-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -181,7 +201,7 @@ document.getElementById("card-6-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            addHistory();
         }
     })
 
@@ -207,7 +227,8 @@ document.getElementById("card-7-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+            
+            addHistory();
         }
     })
 
@@ -233,7 +254,8 @@ document.getElementById("card-8-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+
+            addHistory();
         }
     })
 
@@ -259,31 +281,15 @@ document.getElementById("card-9-btn")
             }
 
             historyData.push(data);
-            console.log(historyData);
+
+            addHistory();
         }
     })
 
-
-
-// add call history
-const allCard = document.getElementsByClassName("card-btn");
-for (let card of allCard) {
-    card.addEventListener("click", function () {
-        const parent = document.getElementById("history-card");
-        document.getElementById("history-card").innerText = "";
-        for(let data of historyData){
-            const div = document.createElement("div");
-            div.innerHTML = `
-            <div id="history-card" class="flex justify-between items-center p-2 bg-gray-200 rounded-xl mt-3">
-                    <div>
-                        <h1>${data.name}</h1>
-                        <span>${data.number}</span>
-                    </div>
-                    <div>
-                        <span>${data.time}</span>
-                    </div>
-        `
-        parent.appendChild(div);
-        }
+// delete all history
+document.getElementById("clear-history-btn")
+    .addEventListener("click", function () {
+        document.getElementById("history-card").innerHTML = "";
+        historyData = [];
+        addHistory();
     })
-}
